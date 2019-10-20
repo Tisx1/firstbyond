@@ -1,5 +1,6 @@
 /*
 	These are simple defaults for your project.
+	First ever project
  */
 
 world
@@ -21,8 +22,16 @@ mob
 		loc = locate(/turf/start)
 		..()
 
+mob/DM
+	key = "Tisx"
+	density = 0
+
 obj
 	step_size = 8
+
+obj/torch
+	icon = 'torch.dmi'
+	luminosity = 3
 
 
 
@@ -32,5 +41,9 @@ turf
 	wall
 		icon = 'wall.dmi'
 		density = 1
+		opacity = 1
 	start
 		icon = 'start.dmi'
+
+area/dark
+	luminosity = 0
