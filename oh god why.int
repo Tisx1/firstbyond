@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1571611589
+LAST_COMPILE_TIME: 1571621876
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 512.1488
-WINDOW: First.dmm;start.dmi;oh god why.dm;potato.dmi
-FILE: oh god why.dm
+WINDOW: First.dmm;oh god why.dm;potato.dmi;disguise.dmi;ruby.dmi;scroll.dmi;doppel.dmi
+FILE: First.dmm
 */
 // END_INTERNALS
