@@ -3,17 +3,21 @@
 "c" = (/turf/wall,/area/dark)
 "d" = (/turf/start,/area/dark)
 "e" = (/obj/torch,/turf/floor,/area/dark)
+"f" = (/obj/disguise,/turf/floor,/area/dark)
+"g" = (/obj/ruby,/turf/floor,/area/dark)
+"h" = (/obj/mirror_scroll,/turf/floor,/area/dark)
+"i" = (/obj/doppelganger,/turf/floor,/area/dark)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaa
-abcbbbbcbbbbbbbbbbba
+abcbbbbcbbbibbbbbbba
 abcbbdbbbbbbbbbbbbba
 abcbbbbcccccccccbbba
 abccccbcbbbcbbbbbbba
 abbcbbbcbbbcbbbbbbba
-abbcbbbcbbbcbbbbbbba
+abbcfbbcbbbcbbbbbbba
 abbcbbbcbbbcccccbbba
-abbcbbbcbbbbbbbbbbba
+abbcgbhcbbbbbbbbbbba
 abbcebbcebbbbbbbbbba
 abbbccbcccccccccbbba
 abbbbcbbcbbbbbbbbbba

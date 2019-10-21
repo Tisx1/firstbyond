@@ -53,6 +53,17 @@ mob/verb/play(snd as sound)
 mob/verb/said(ms as text)
 	view() << "[usr] says, '[ms]'"
 
+mob/verb/look_up()
+	usr << weather
+
+mob/DM/verb/set_weather(txt as text)
+	weather = txt
+
+mob/DM/verb/set_value(obj/o,v as num)
+	o.value = v
+
+
+
 // Object stuff
 
 obj
@@ -87,6 +98,50 @@ obj/scroll/verb
 		set src in view()
 		usr << desc
 
+obj
+	var/value
+	stone
+		value = 1
+	ruby
+		icon = 'ruby.dmi'
+		value = 50
+	diamond
+		value = 100
+
+obj/verb/set_value(v as num)
+	set src in view()
+	value = v
+
+obj/disguise
+	icon = 'disguise.dmi'
+	var/old_icon
+	verb
+		wear()
+			old_icon = usr.icon
+			usr.icon = icon
+		remove()
+			usr.icon = old_icon
+
+obj/mirror_scroll
+	icon = 'scroll.dmi'
+	verb/cast()
+		var/usr_icon = usr.icon
+		usr.icon = icon
+		icon = usr_icon
+
+obj/doppelganger
+	var/const/init_icon = 'doppel.dmi'
+	icon = init_icon
+
+	verb
+		clone()
+			set src in view()
+			icon = usr.icon
+		revert()
+			set src in view()
+			icon = init_icon
+
+
 // Turf
 
 
@@ -105,3 +160,9 @@ area/dark
 
 area/dark/verb/clap()
 	luminosity = 1
+
+
+
+
+
+var/weather = "The moon is covered by clouds."
