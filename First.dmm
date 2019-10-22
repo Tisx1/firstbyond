@@ -1,4 +1,4 @@
-"a" = (/turf/wall,/area)
+"a" = (/turf/lead_wall,/area)
 "b" = (/turf/floor,/area/dark)
 "c" = (/turf/wall,/area/dark)
 "d" = (/turf/start,/area/dark)
@@ -7,16 +7,18 @@
 "g" = (/obj/ruby,/turf/floor,/area/dark)
 "h" = (/obj/mirror_scroll,/turf/floor,/area/dark)
 "i" = (/obj/doppelganger,/turf/floor,/area/dark)
+"j" = (/obj/poison,/turf/floor,/area/dark)
+"k" = (/turf/pit,/area/dark)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaa
-abcbbbbcbbbibbbbbbba
+abcbbbbcbjbibbbbbbba
 abcbbdbbbbbbbbbbbbba
 abcbbbbcccccccccbbba
 abccccbcbbbcbbbbbbba
 abbcbbbcbbbcbbbbbbba
-abbcfbbcbbbcbbbbbbba
-abbcbbbcbbbcccccbbba
+abbcfbbcbbbcebbbbbba
+abbcbbbcbkbcccccbbba
 abbcgbhcbbbbbbbbbbba
 abbcebbcebbbbbbbbbba
 abbbccbcccccccccbbba
