@@ -7,7 +7,7 @@ world
 	fps = 25		// 25 frames per second
 	icon_size = 32	// 32x32 icon size by default
 
-	view = 8		// show up to 6 tiles outward from center (13x13 view)
+	view = 6		// show up to 6 tiles outward from center (13x13 view)
 
 
 // Make objects move 8 pixels per tick when walking
@@ -24,14 +24,14 @@ mob
 		loc = locate(/turf/start)
 		..()
 
-mob/DM
-	key = "Tisx"
-	verb
-		intangible()
-			density = 0
-	verb
-		tangible()
-			density = 1
+mob
+	var/life = 100
+
+	proc/HurtMe(D)
+		life = life - D
+		if(life < 0)
+			view() << "[src] dies!"
+			del src
 
 mob/verb/make_potato()
 	set src in view()
@@ -50,19 +50,11 @@ mob/verb/set_icon(i as icon)
 mob/verb/play(snd as sound)
 	view() << snd
 
-mob/verb/said(ms as text)
-	view() << "[usr] says, '[ms]'"
-
 mob/verb/look_up()
 	usr << weather
 
-mob/DM/verb/set_weather(txt as text)
-	weather = txt
-
-mob/DM/verb/set_value(obj/o,v as num)
-	o.value = v
-
-
+mob/verb/ob(cla as sound)
+	view() << "[usr] fires an OB."
 
 // Object stuff
 
@@ -76,6 +68,14 @@ obj/torch
 obj/torch/verb/extinguish()
 	set src in view(1)
 	luminosity = 0
+
+obj/poison
+	name = "posion"
+	icon = 'posion.dmi'
+	verb/drink()
+		set src in view(0)
+		usr.HurtMe(25)
+		del src
 
 obj
 	verb
@@ -154,6 +154,17 @@ turf
 		opacity = 1
 	start
 		icon = 'start.dmi'
+	lead_wall
+		icon = 'lead_wall.dmi'
+		density = 1
+		opacity = 1
+
+		Enter(O)
+			return 0
+	pit
+		icon = 'pit.dmi'
+		Exit(O)
+			O << "You are stuck in [src]"
 
 area/dark
 	luminosity = 0
@@ -163,6 +174,35 @@ area/dark/verb/clap()
 
 
 
+proc/Stars(day)
+	 //day should be 1 to 365
+   if(day > 354) return "Capricorn"
+   if(day > 325) return "Sagittarius"
+   if(day > 295) return "Scorpio"
+   if(day > 265) return "Libra"
+   if(day > 234) return "Virgo"
+   if(day > 203) return "Leo"
+   if(day > 172) return "Cancer"
+   if(day > 141) return "Gemini"
+   if(day > 110) return "Taurus"
+   if(day > 79)  return "Aries"
+   if(day > 50)  return "Pisces"
+   if(day > 20)  return "Aquarius"
+   return "Capricorn"
 
+proc/Newday()
+	day_count = day_count + 1
+	day_of_week = day_count % 7
+
+	if(day_of_week == 1)
+		world << "It's monday"
+	else
+		world << "A new day breaks"
+
+var/day_of_year = 1
+
+var
+	day_count
+	day_of_week
 
 var/weather = "The moon is covered by clouds."

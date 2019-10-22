@@ -7,12 +7,14 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "Icons"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
+#include "DM stuff.dm"
 #include "oh god why.dm"
 #include "First.dmm"
 // END_INCLUDE
